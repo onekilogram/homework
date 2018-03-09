@@ -6,7 +6,7 @@
 	<display-name>homework</display-name>
 
 	<welcome-file-list>
-		<welcome-file>asset/module/index/index.html</welcome-file>
+		<welcome-file>/asset/html/index.html</welcome-file>
 	</welcome-file-list>
 
 	<context-param>
@@ -63,7 +63,7 @@
 	<!-- 配置错误页 -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/asset/module/error/404.html</location>
+		<location>/asset/html/404.html</location>
 	</error-page>
 
 	<!-- 静态文件无需经过Spring -->
