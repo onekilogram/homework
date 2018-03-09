@@ -6,8 +6,6 @@ public class test1 {
 		// TODO Auto-generated method stub
 		//ahha 
 
-		
-		//ddd
 	}
 
 }
