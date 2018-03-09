@@ -36,7 +36,6 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
 	<!-- Spring的log4j监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
@@ -67,7 +66,6 @@
 		<error-code>404</error-code>
 		<location>/asset/html/404.html</location>
 	</error-page>
-
 	<!-- 静态文件无需经过Spring -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
