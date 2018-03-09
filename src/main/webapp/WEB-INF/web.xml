@@ -9,6 +9,7 @@
 		<welcome-file>/asset/html/index.html</welcome-file>
 	</welcome-file-list>
 
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:application-context.xml</param-value>
@@ -30,6 +31,7 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
