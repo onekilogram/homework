@@ -6,7 +6,7 @@
 	<display-name>homework</display-name>
 
 	<welcome-file-list>
-		<welcome-file>/asset/html/index.html</welcome-file>
+		<welcome-file>asset/html/pre.html</welcome-file>
 	</welcome-file-list>
 
 
