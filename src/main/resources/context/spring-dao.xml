@@ -3,8 +3,20 @@
 
 <!-- dao访问层 -->
 <beans default-autowire="byName">
-	<!-- <bean id="sparkAppStatisticsDao" class="org.mybatis.spring.mapper.MapperFactoryBean"> 
-		<property name="mapperInterface" value="org.hit.monitor.dao.SparkAppStatisticsDao" 
-		/> <property name="sqlSessionFactory" ref="sqlSessionFactory" /> </bean> -->
-
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.netease.koala.dao.UserMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="recordMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.netease.koala.dao.RecordMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="shopCarMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.netease.koala.dao.ShopCarMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<bean id="itemMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.netease.koala.dao.ItemMapper" />
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
 </beans>

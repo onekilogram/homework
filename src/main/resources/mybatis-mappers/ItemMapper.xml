@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.netease.koala.dao.ItemMapper" >
+  <resultMap id="BaseResultMap" type="com.netease.koala.model.Item" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="itemname" property="itemname" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="pirce" property="pirce" jdbcType="REAL" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="remain" property="remain" jdbcType="INTEGER" />
+    <result column="datatime" property="datatime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, itemname, title, icon, pirce, count, remain, datatime, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.netease.koala.model.Item" >
+    insert into tb_item (id, itemname, title, 
+      icon, pirce, count, remain, 
+      datatime, status)
+    values (#{id,jdbcType=INTEGER}, #{itemname,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{pirce,jdbcType=REAL}, #{count,jdbcType=INTEGER}, #{remain,jdbcType=INTEGER}, 
+      #{datatime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.netease.koala.model.Item" >
+    insert into tb_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="itemname != null" >
+        itemname,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="pirce != null" >
+        pirce,
+      </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="remain != null" >
+        remain,
+      </if>
+      <if test="datatime != null" >
+        datatime,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="itemname != null" >
+        #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="pirce != null" >
+        #{pirce,jdbcType=REAL},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="remain != null" >
+        #{remain,jdbcType=INTEGER},
+      </if>
+      <if test="datatime != null" >
+        #{datatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.netease.koala.model.Item" >
+    update tb_item
+    <set >
+      <if test="itemname != null" >
+        itemname = #{itemname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="pirce != null" >
+        pirce = #{pirce,jdbcType=REAL},
+      </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="remain != null" >
+        remain = #{remain,jdbcType=INTEGER},
+      </if>
+      <if test="datatime != null" >
+        datatime = #{datatime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.netease.koala.model.Item" >
+    update tb_item
+    set itemname = #{itemname,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      pirce = #{pirce,jdbcType=REAL},
+      count = #{count,jdbcType=INTEGER},
+      remain = #{remain,jdbcType=INTEGER},
+      datatime = #{datatime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
