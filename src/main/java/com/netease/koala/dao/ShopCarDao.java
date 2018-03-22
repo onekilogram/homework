@@ -2,7 +2,7 @@ package com.netease.koala.dao;
 
 import com.netease.koala.model.ShopCar;
 
-public interface ShopCarMapper {
+public interface ShopCarDao {
     int deleteByPrimaryKey(Integer id);
 
     int insert(ShopCar record);

@@ -2,7 +2,7 @@ package com.netease.koala.dao;
 
 import com.netease.koala.model.Record;
 
-public interface RecordMapper {
+public interface RecordDao {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Record record);
