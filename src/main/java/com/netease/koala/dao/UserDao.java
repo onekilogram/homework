@@ -14,4 +14,7 @@ public interface UserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+    
+    /********************以上是自动生成的代码，以下是业务逻辑所需要*****************************/
+    User selectByUserName(String userName);
 }

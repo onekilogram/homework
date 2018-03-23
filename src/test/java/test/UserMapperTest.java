@@ -45,6 +45,7 @@ public class UserMapperTest {
 		System.out.println(user.getPassword());
 		System.out.println("GG");
 		System.out.println("GG");
+		System.out.println(userDao.selectByUserName("buyer").getPassword());
 	}
 
 	@Test
