@@ -1,5 +1,8 @@
 package com.netease.koala.common;
-
+/**
+ * 测试用例
+ * 
+ */
 public class Model1 {
 
 	private int age;

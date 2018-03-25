@@ -14,4 +14,6 @@ public interface RecordDao {
     int updateByPrimaryKeySelective(Record record);
 
     int updateByPrimaryKey(Record record);
+    
+    /********************以上是自动生成的代码，以下是业务逻辑所需要*****************************/
 }

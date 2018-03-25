@@ -1,5 +1,6 @@
 package com.netease.koala.service;
 
+import com.netease.koala.common.ResultDTO;
 import com.netease.koala.model.User;
 
 /**
@@ -9,5 +10,6 @@ import com.netease.koala.model.User;
  * @date 2018年3月21日 下午9:22:30
  */
 public interface LoginService {
-	public User selectByName(String username);
+	//根据用户名查询
+	public ResultDTO<User> selectByName(String userName);
 }

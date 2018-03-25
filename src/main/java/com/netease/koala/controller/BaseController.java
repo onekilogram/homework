@@ -2,10 +2,12 @@ package com.netease.koala.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.netease.koala.common.ControllerResult;
+import com.netease.koala.model.User;
 
 import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * 适用SpringMVC的的一些数据传递方法
@@ -81,5 +83,11 @@ public class BaseController {
 		actionResult.setSuccess(true);
 		actionResult.setDataObject(obj);
 		return responseJson(actionResult);
+	}
+	
+	protected User getLoginUser(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		return user;
 	}
 }

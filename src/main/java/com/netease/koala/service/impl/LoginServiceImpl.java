@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.netease.koala.common.ResultDTO;
 import com.netease.koala.dao.UserDao;
 import com.netease.koala.model.User;
 import com.netease.koala.service.LoginService;
@@ -20,14 +21,17 @@ public class LoginServiceImpl implements LoginService {
 		this.userDao = userDao;
 	}
 
-	public User selectByName(String userName) {
+	public ResultDTO<User> selectByName(String userName) {
+		ResultDTO<User> result = new ResultDTO<User>();
 		try {
 			User user = userDao.selectByUserName(userName);
-			return user;
+			result.setSuccess(true);
+			result.setModule(user);
 		} catch (Exception e) {
-			// TODO: handle exception
-			log.error("查找用户名异常！");
-			return null;
+			result.setSuccess(false);
+			result.setErrorDetail("按用户名查询失败！");
+			log.error("按用户名查询失败！");
 		}
+		return result;
 	}
 }
