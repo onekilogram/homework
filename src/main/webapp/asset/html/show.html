@@ -13,45 +13,54 @@
 			<ul class="nav">
 				<li><a href="./index.html">首页</a></li>
 			</ul>
+			<b style="display: none" id="userId"></b>
 		</div>
 	</div>
 	<!--/end 头部显示 -->
+	<!-- 详情 -->
 	<div class="g-doc">
 		<div class="n-show f-cb" id="showContent">
 			<div class="img">
-				<img src="http://nec.netease.com/img/l/1.jpg" alt="">
+				<img>
 			</div>
 			<div class="cnt">
-				<h2>名称</h2>
-				<p class="summary">摘要</p>
-				<div class="price">
-					<span class="v-unit">¥</span><span class="v-value">123.9</span>
+				<h2 class="itemName">[商品名]</h2>
+				<p class="title">[摘要]</p>
+				<div class="price" style="margin-top: 130px">
+					<span class="v-unit">¥</span><span class="v-value">N/A</span>
 				</div>
-				<div class="oprt f-cb">
-					<button class="u-btn u-btn-primary" data-buy="1">购 买</button>
-					<span class="u-btn u-btn-primary z-dis">已购买</span> <span
-						class="buyprice">当时购买价格：¥123.9</span> <a href="./edit.html"
-						class="u-btn u-btn-primary">编 辑</a>
+				<div>
+					<span>购买数量      </span><span class="saleCount">N/A</span>
 				</div>
+				<div class="oprt f-cb kg" style="display: none"></div>
+				<!-- <div class="oprt f-cb kg" style="display: none">
+					<span class='u-btn u-btn-primary z-dis'>已购买</span> 当时购买价格：¥<span
+						class="buyprice">123.9</span> 
+				</div>
+				
+				<div class="oprt f-cb kg" style="display: none">
+					<a href='./edit.html'
+						class='u-btn u-btn-primary'>编 辑</a>
+				</div> -->
 			</div>
 		</div>
 		<div class="m-tab m-tab-fw m-tab-simple f-cb">
 			<h2>详细信息</h2>
 		</div>
-		<div class="n-detail">
-			全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文全文
-		</div>
+		<div class="n-detail"><h2>[详细信息]</h2></div>
+		<b style="display: none" id="itemId"></b>
 	</div>
+	<!-- end 详情 -->
 	<div class="n-foot">
 		<p>
 			版权所有：网易云课堂<a
 				href="http://mooc.study.163.com/smartSpec/detail/85002.htm">Java开发工程师(Web方向)</a>微专业团队
 		</p>
 	</div>
-	<script type="text/javascript" src="../js/global.js"></script>
-	<script type="text/javascript" src="../js/pageShow.js"></script>
 	<script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
-<script type="text/javascript" src="../js/commonHeadPack.js"></script>
-<script type="text/javascript" src="../js/initHead.js"></script>
+	<script type="text/javascript" src="../js/global.js"></script>
+	<script type="text/javascript" src="../js/commonHeadPack.js"></script>
+	<script type="text/javascript" src="../js/initHead.js"></script>
+	<script type="text/javascript" src="../js/pageShow.js"></script>
 </body>
 </html>

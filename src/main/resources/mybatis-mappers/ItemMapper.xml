@@ -5,6 +5,7 @@
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="itemname" property="itemname" jdbcType="VARCHAR" />
 		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="description" property="description" jdbcType="VARCHAR" />
 		<result column="icon" property="icon" jdbcType="VARCHAR" />
 		<result column="pirce" property="pirce" jdbcType="REAL" />
 		<result column="count" property="count" jdbcType="INTEGER" />
@@ -13,7 +14,7 @@
 		<result column="status" property="status" jdbcType="INTEGER" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, itemname, title, icon, pirce, count, remain, datatime,
+		id, itemname, title, description, icon, pirce, count, remain, datatime,
 		status
 	</sql>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
@@ -24,21 +25,18 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from
-		tb_item
+		delete from tb_item
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.netease.koala.model.Item">
-		insert into tb_item (id,
-		itemname, title,
-		icon, pirce, count, remain,
-		datatime, status)
-		values
-		(#{id,jdbcType=INTEGER}, #{itemname,jdbcType=VARCHAR},
+		insert into tb_item (id, itemname, title,
+		description, icon, pirce,
+		count, remain, datatime,
+		status)
+		values (#{id,jdbcType=INTEGER}, #{itemname,jdbcType=VARCHAR},
 		#{title,jdbcType=VARCHAR},
-		#{icon,jdbcType=VARCHAR},
-		#{pirce,jdbcType=REAL}, #{count,jdbcType=INTEGER},
-		#{remain,jdbcType=INTEGER},
+		#{description,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{pirce,jdbcType=REAL},
+		#{count,jdbcType=INTEGER}, #{remain,jdbcType=INTEGER},
 		#{datatime,jdbcType=TIMESTAMP},
 		#{status,jdbcType=INTEGER})
 	</insert>
@@ -53,6 +51,9 @@
 			</if>
 			<if test="title != null">
 				title,
+			</if>
+			<if test="description != null">
+				description,
 			</if>
 			<if test="icon != null">
 				icon,
@@ -83,6 +84,9 @@
 			<if test="title != null">
 				#{title,jdbcType=VARCHAR},
 			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
 			<if test="icon != null">
 				#{icon,jdbcType=VARCHAR},
 			</if>
@@ -112,6 +116,9 @@
 			<if test="title != null">
 				title = #{title,jdbcType=VARCHAR},
 			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=VARCHAR},
+			</if>
 			<if test="icon != null">
 				icon = #{icon,jdbcType=VARCHAR},
 			</if>
@@ -135,21 +142,17 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.netease.koala.model.Item">
 		update tb_item
-		set
-		itemname = #{itemname,jdbcType=VARCHAR},
-		title =
-		#{title,jdbcType=VARCHAR},
+		set itemname = #{itemname,jdbcType=VARCHAR},
+		title = #{title,jdbcType=VARCHAR},
+		description = #{description,jdbcType=VARCHAR},
 		icon = #{icon,jdbcType=VARCHAR},
-		pirce =
-		#{pirce,jdbcType=REAL},
+		pirce = #{pirce,jdbcType=REAL},
 		count = #{count,jdbcType=INTEGER},
-		remain =
-		#{remain,jdbcType=INTEGER},
+		remain = #{remain,jdbcType=INTEGER},
 		datatime = #{datatime,jdbcType=TIMESTAMP},
 		status = #{status,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-
 
 	<select id="selectAllItem" resultMap="BaseResultMap">
 		select

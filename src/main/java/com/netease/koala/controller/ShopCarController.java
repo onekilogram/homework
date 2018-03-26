@@ -22,7 +22,7 @@ import com.netease.koala.service.RecordService;
 
 @Controller
 @RequestMapping("api")
-public class ItemController extends BaseController {
+public class ShopCarController extends BaseController {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 

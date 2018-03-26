@@ -11,9 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.netease.koala.common.ResultDTO;
 import com.netease.koala.dao.ItemDao;
+import com.netease.koala.dao.RecordDao;
 import com.netease.koala.dao.UserDao;
 import com.netease.koala.model.Item;
+import com.netease.koala.model.Record;
 import com.netease.koala.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,6 +28,9 @@ public class UserMapperTest {
 
 	@Autowired
 	private ItemDao itemDao;
+	
+	@Autowired
+	private RecordDao recordDao;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -59,6 +65,12 @@ public class UserMapperTest {
 		
 		List<Item> list3 = itemDao.selectNoHaveItemByUserId(1);
 		System.out.println(list3.size());
+		
+		List<Record> list5 = recordDao.selectOneRecord(1, 1);
+		System.out.println(list5.size());
+		
+		List<Record> list = recordDao.selectAllRecord(1);
+		System.out.println(list.size());
 		
 	}
 

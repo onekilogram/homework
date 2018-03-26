@@ -114,4 +114,23 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+  <select id="selectAllRecord" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_record
+    where itemid = #{itemid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectOneRecord" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_record
+    where itemid = #{itemid,jdbcType=INTEGER} and userid = #{userid,jdbcType=INTEGER}
+  </select>
+  
+  
+  
+  
 </mapper>

@@ -9,7 +9,7 @@ $(function($) {
 		var dataObject = data.dataObject;
 		var role = dataObject.role;
 		var userName = dataObject.userName;
-		
+		var userId = dataObject.userId;
 		var userDiv = $(".user");
 		var navUl = $(".nav");
 		
@@ -20,10 +20,12 @@ $(function($) {
 			userDiv.append('买家您好！'+userName+'<a href='+homeworkWebBaseURL+'api/logout>[退出]</a>');
 			navUl.append("<li><a href='./account.html'>账务</a>");
 			navUl.append("<li><a href='./account.html'>购物车</a>");
+			$(".g-doc #userId").html(userId);
 		} else {
 			//有发布
 			userDiv.append('卖家您好！'+userName+'<a href='+homeworkWebBaseURL+'api/logout>[退出]</a>');
 			navUl.append("<li><a href='./public.html'>发布</a>");
+			$(".g-doc #userId").html(userId);
 		}
 	});
 });

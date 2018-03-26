@@ -4,7 +4,6 @@ package com.netease.koala.service;
  */
 
 import com.netease.koala.common.BatchResultDTO;
-import com.netease.koala.common.ResultDTO;
 import com.netease.koala.model.Record;
 
 public interface RecordService {
@@ -13,6 +12,6 @@ public interface RecordService {
 	BatchResultDTO<Record> selectAllRecord(Integer userId);
 
 	//查询是否存在 userId  itemId
-	ResultDTO<Record> selectOneRecord(Integer userId,Integer itemId);
+	BatchResultDTO<Record> selectOneRecord(Integer userId,Integer itemId);
 
 }
