@@ -9,6 +9,21 @@
 		<result column="datatime" property="datatime" jdbcType="TIMESTAMP" />
 		<result column="status" property="status" jdbcType="INTEGER" />
 	</resultMap>
+
+	<resultMap id="ShopCarExtendMap" type="com.netease.koala.model.ShopCarExtend">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="itemid" property="itemid" jdbcType="INTEGER" />
+		<result column="count" property="count" jdbcType="INTEGER" />
+		<result column="datatime" property="datatime" jdbcType="TIMESTAMP" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+
+		<result column="itemname" property="itemname" jdbcType="VARCHAR" />
+		<result column="icon" property="icon" jdbcType="VARCHAR" />
+		<result column="pirce" property="pirce" jdbcType="REAL" />
+		<result column="itemstatus" property="itemstatus" jdbcType="INTEGER" />
+	</resultMap>
+
 	<sql id="Base_Column_List">
 		id, userid, itemid, count, datatime, status
 	</sql>
@@ -20,16 +35,20 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from tb_shopcar
+		delete from
+		tb_shopcar
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.netease.koala.model.ShopCar">
-		insert into tb_shopcar (id, userid, itemid,
+		insert into tb_shopcar (id,
+		userid, itemid,
 		count, datatime, status
 		)
-		values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER},
+		values (#{id,jdbcType=INTEGER},
+		#{userid,jdbcType=INTEGER},
 		#{itemid,jdbcType=INTEGER},
-		#{count,jdbcType=INTEGER}, #{datatime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+		#{count,jdbcType=INTEGER}, #{datatime,jdbcType=TIMESTAMP},
+		#{status,jdbcType=INTEGER}
 		)
 	</insert>
 	<insert id="insertSelective" parameterType="com.netease.koala.model.ShopCar">
@@ -99,9 +118,11 @@
 	<update id="updateByPrimaryKey" parameterType="com.netease.koala.model.ShopCar">
 		update tb_shopcar
 		set userid = #{userid,jdbcType=INTEGER},
-		itemid = #{itemid,jdbcType=INTEGER},
+		itemid =
+		#{itemid,jdbcType=INTEGER},
 		count = #{count,jdbcType=INTEGER},
-		datatime = #{datatime,jdbcType=TIMESTAMP},
+		datatime
+		= #{datatime,jdbcType=TIMESTAMP},
 		status = #{status,jdbcType=INTEGER}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
@@ -114,16 +135,24 @@
 		from tb_shopcar where status =1
 	</select>
 
-	<select id="selectShopCarByUserId" resultMap="BaseResultMap"
+	<select id="selectShopCarByUserId" resultMap="ShopCarExtendMap"
 		parameterType="java.lang.Integer">
+		select s.* ,i.itemname,i.pirce ,i.icon,i.status
+		itemstatus from tb_shopcar s , tb_item i where s.itemid =i.id and
+		s.status =1 and userid = #{userid,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteShopCarByShopCarId" parameterType="java.lang.Integer">
+		delete from
+		tb_shopcar
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<select id="selectByUseridAndItemid" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
 		from tb_shopcar
 		where status =1 and userid = #{userid,jdbcType=INTEGER}
+		and itemid = #{itemid,jdbcType=INTEGER}
 	</select>
-
-	<delete id="deleteShopCarByShopCarId" parameterType="java.lang.Integer">
-		delete from tb_shopcar
-		where id = #{id,jdbcType=INTEGER}
-	</delete>
 </mapper>

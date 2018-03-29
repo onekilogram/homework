@@ -164,7 +164,7 @@
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from tb_item WHERE id in (SELECT id FROM tb_record WHERE userid =
+		from tb_item WHERE id in (SELECT itemid FROM tb_record WHERE userid =
 		#{userId,jdbcType=INTEGER})
 	</select>
 
@@ -172,7 +172,7 @@
 		parameterType="java.lang.Integer">
 		select
 		<include refid="Base_Column_List" />
-		from tb_item WHERE id not in (SELECT id FROM tb_record WHERE userid =
+		from tb_item WHERE id not in (SELECT itemid FROM tb_record WHERE userid =
 		#{userId,jdbcType=INTEGER})
 	</select>
 

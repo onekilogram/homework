@@ -1,11 +1,12 @@
 package com.netease.koala.service;
 /**
- * 商品服务类
+ * 购物车服务类
  */
 
 import com.netease.koala.common.BatchResultDTO;
 import com.netease.koala.common.ResultDTO;
 import com.netease.koala.model.ShopCar;
+import com.netease.koala.model.ShopCarExtend;
 
 public interface ShopCarService {
 
@@ -13,15 +14,18 @@ public interface ShopCarService {
 	BatchResultDTO<ShopCar> selectAllShopCar();
 
 	// 某用户所有的购物车的商品
-	BatchResultDTO<ShopCar> selectShopCarByUserId(Integer userId);
+	BatchResultDTO<ShopCarExtend> selectShopCarByUserId(Integer userId);
 
 	// 删除某一个商品
 	ResultDTO<Integer> deleteShopCarByShopCarId(Integer shopCarId);
-	
+
 	// insert某一个购物车信息
-	ResultDTO<Integer> insertOneShopCar(Integer userId,Integer itemId);
-	
+	ResultDTO<Integer> insertOneShopCar(Integer userId, Integer itemId);
+
 	// edit某一个购物车信息
-	ResultDTO<Integer> editOneShopCar(Integer userId,Integer itemId,Integer count);
+	ResultDTO<Integer> updateOneShopCar(Integer id, Integer count);
+
+	// 主键查询购物车的商品
+	ResultDTO<ShopCar> selectShopCarById(Integer id);
 
 }

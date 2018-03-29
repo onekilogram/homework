@@ -25,15 +25,13 @@
 								type : "POST",
 								dataType: 'json',
 								data:{itemId:itemId,userId:userId},
-								url:homeworkWebBaseURL+'api/addshopcar',
+								url:homeworkWebBaseURL+'api/insertShopCar',
 								success : function(msg) {
 									//loading.hide();
 									//alert("Data Saved: " + msg);
 									if(msg.success){
 										loading.result('加入购物车！');
-										setTimeout(function () { 
-											location.href = './account.html';
-									    }, 2000);
+										
 									}else{
 										loading.result('加入购物车异常',function(){location.href = './login.html';});
 									}

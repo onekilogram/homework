@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import com.netease.koala.model.Record;
+import com.netease.koala.model.ShopCarExtend;
 
 public interface RecordDao {
     int deleteByPrimaryKey(Integer id);
@@ -25,4 +26,6 @@ public interface RecordDao {
 
     List<Record> selectOneRecord(@Param("userid") Integer userId,@Param("itemid") Integer itemId);
     
+    //借用了ShopCarExtend 购物车详情的类
+    List<ShopCarExtend> selectRecordEx(Integer userId);
 }

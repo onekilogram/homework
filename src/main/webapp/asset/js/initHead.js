@@ -19,7 +19,7 @@ $(function($) {
 			//有账单和购物车
 			userDiv.append('买家您好！'+userName+'<a href='+homeworkWebBaseURL+'api/logout>[退出]</a>');
 			navUl.append("<li><a href='./account.html'>账务</a>");
-			navUl.append("<li><a href='./account.html'>购物车</a>");
+			navUl.append("<li><a href='./shopcar.html'>购物车</a>");
 			$(".g-doc #userId").html(userId);
 		} else {
 			//有发布

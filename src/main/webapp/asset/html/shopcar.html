@@ -4,11 +4,14 @@
 <meta charset="utf-8" />
 <title>java</title>
 <link rel="stylesheet" href="../css/style.css" />
+
 <script type="text/javascript" src="../js/global.js"></script>
+<script type="text/javascript" src="../js/pageIndex.js"></script>
 <script type="text/javascript" src="../js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="../js/commonHeadPack.js"></script>
 <script type="text/javascript" src="../js/initHead.js"></script>
-<script type="text/javascript" src="../js/account.js"></script>
+<script type="text/javascript" src="../js/shopcar.js"></script>
+
 </head>
 <body>
 	<div class="n-support">请使用Chrome、Safari等webkit内核的浏览器！</div>
@@ -25,7 +28,7 @@
 	<!--/end 头部显示 -->
 	<div class="g-doc">
 		<div class="m-tab m-tab-fw m-tab-simple f-cb">
-			<h2>已购买的内容</h2>
+			<h2>已添加到购物车的内容</h2>
 		</div>
 		<table class="m-table m-table-row n-table g-b3">
 			<colgroup>
@@ -36,38 +39,50 @@
 			</colgroup>
 			<thead>
 				<tr>
+					<th>选择</th>
 					<th>内容图片</th>
 					<th>内容名称</th>
-					<th>购买时间</th>
 					<th>单价</th>
 					<th>数量</th>
 					<th>小计</th>
+					<th>删除</th>
 				</tr>
 			</thead>
 			<tbody id="t-tbody">
+			    
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="5"><div class="total">总计：</div></td>
-					<td><span class="v-unit">¥</span><span class="value" id="totalValue">123.9</span></td>
+					<td colspan="6"><div class="total">总计：</div></td>
+					<td><span class="v-unit">¥</span><span class="value" id="totalValue">123.9</span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="6"><div class="total"></div></td>
+					<td>
+					<div><button class='u-btn u-btn-primary' data-buy='1'>去支付</button></div>
+					</td>
 				</tr>
 				<!-- 模板 -->
 				<tr id="tr-5" style="display: none">
+					<td><span><input class="u-ipt u-kg i-checkbox" type="checkbox"  checked="checked"
+							name="check" /></span></td>
 					<td><a href="./show.html" id="a-img"><img id="i-img"
 							src="http://nec.netease.com/img/s/1.jpg" alt=""></a></td>
 					<td><h4>
 							<a href="./show.html" id="a-itemname">内容名称</a>
 						</h4></td>
-						<td><h4>
-							<span class="v-datetime">2017-03-24 12:43:28</span>
-						</h4></td>
 					<td><h4>
 							<span class="v-unit">¥</span><span class="perPrice">N/A</span>
 						</h4></td>
 					<td><h4>
-							<span class="count kg-count">2</span>
+							<span class="u-btn u-btn-normal u-btn-xs del lessNum"
+						data-del="3">  -  </span><span class="count kg-count">2</span><span class="u-btn u-btn-normal u-btn-xs del moreNum"
+						data-del="3">+</span>
 						</h4></td>
 					<td><span class="v-unit">¥</span><span class="totalPrice">N/A</span></td>
+					<td><span class="u-btn u-btn-normal u-btn-xs del deleteButton"
+						data-del="3">移除</span></td>
 				</tr>
 			</tfoot>
 		</table>
