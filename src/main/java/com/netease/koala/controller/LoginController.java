@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.netease.koala.common.ResultDTO;
 import com.netease.koala.model.User;
 import com.netease.koala.service.LoginService;
-
+/**
+ * @ClassName LoginController 
+ * @Description 登录与注销
+ * @author kg 
+ */
 @Controller
 @RequestMapping("api")
 public class LoginController extends BaseController {
@@ -81,4 +85,5 @@ public class LoginController extends BaseController {
 			return responseControllerResultError("初始化index head失败！");
 		}
 	}
+	
 }
