@@ -1,7 +1,6 @@
 package com.netease.koala.model;
 
 public class ShopCarExtend extends ShopCar {
-	
 	private String icon;
 
 	private String itemname;
