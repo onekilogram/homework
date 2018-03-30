@@ -82,4 +82,5 @@ public class ControllerResult implements Serializable {
 		this.msg = msg;
 		return this;
 	}
+	
 }
