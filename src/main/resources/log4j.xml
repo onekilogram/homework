@@ -24,5 +24,4 @@
 		<level value="info" />
 		<appender-ref ref="ROOT" />
 	</root>
-
 </log4j:configuration>
