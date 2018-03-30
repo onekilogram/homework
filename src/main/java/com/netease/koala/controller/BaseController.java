@@ -90,4 +90,5 @@ public class BaseController {
 		User user = (User) session.getAttribute("user");
 		return user;
 	}
+	
 }
