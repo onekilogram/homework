@@ -3,6 +3,7 @@ package com.netease.koala.model;
 import java.util.Date;
 
 public class User {
+	
     private Integer id;
 
     private String username;
