@@ -9,6 +9,7 @@ import com.netease.koala.model.Item;
 
 public interface ItemService {
 
+	
 	// 查询所有的商品
 	BatchResultDTO<Item> selectAllItem();
 
