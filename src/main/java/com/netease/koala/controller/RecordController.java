@@ -8,10 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.netease.koala.common.BatchResultDTO;
-import com.netease.koala.model.Record;
 import com.netease.koala.model.ShopCarExtend;
 import com.netease.koala.service.RecordService;
-
+/**
+ * @ClassName RecordController 
+ * @Description 消费记录查询
+ * @author kg 
+ */
 @Controller
 @RequestMapping("api")
 public class RecordController extends BaseController {
