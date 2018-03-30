@@ -1,5 +1,6 @@
 # homework
-
+# 同时已经部署在阿里云  http://www.hit-kg.top:8080/homework  
+# 买家 buyer 密码 reyub     买家 seller  密码 relles
 
 ## 项目结构说明
 
