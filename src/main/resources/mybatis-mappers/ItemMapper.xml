@@ -194,4 +194,5 @@
 		#{remain,jdbcType=INTEGER}
 		where id = #{itemid,jdbcType=INTEGER}
 	</update>
+	
 </mapper>

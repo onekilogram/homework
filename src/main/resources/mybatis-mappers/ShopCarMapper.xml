@@ -155,4 +155,5 @@
 		where status =1 and userid = #{userid,jdbcType=INTEGER}
 		and itemid = #{itemid,jdbcType=INTEGER}
 	</select>
+	
 </mapper>

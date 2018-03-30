@@ -9,6 +9,7 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="datatime" property="datatime" jdbcType="TIMESTAMP" />
   </resultMap>
+  
   <sql id="Base_Column_List" >
     id, username, password, role, status, datatime
   </sql>
