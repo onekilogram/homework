@@ -9,7 +9,6 @@ import com.netease.koala.model.Record;
 import com.netease.koala.model.ShopCarExtend;
 
 public interface RecordService {
-
 	// 查询所有的记录
 	BatchResultDTO<ShopCarExtend> selectAllRecord(Integer userId);
 
