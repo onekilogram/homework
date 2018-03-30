@@ -11,7 +11,6 @@ import com.netease.koala.common.ResultDTO;
 import com.netease.koala.dao.ItemDao;
 import com.netease.koala.model.Item;
 import com.netease.koala.service.ItemService;
-
 @Service("itemService")
 public class ItemServiceImpl implements ItemService {
 
