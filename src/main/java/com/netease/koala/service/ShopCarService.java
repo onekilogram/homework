@@ -9,7 +9,6 @@ import com.netease.koala.model.ShopCar;
 import com.netease.koala.model.ShopCarExtend;
 
 public interface ShopCarService {
-
 	// 查询所有的购物车
 	BatchResultDTO<ShopCar> selectAllShopCar();
 
