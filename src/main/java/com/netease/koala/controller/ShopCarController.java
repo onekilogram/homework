@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.netease.koala.bo.IntegerList;
 import com.netease.koala.common.BatchResultDTO;
 import com.netease.koala.common.ResultDTO;
 import com.netease.koala.model.Item;
@@ -26,6 +24,11 @@ import com.netease.koala.service.ItemService;
 import com.netease.koala.service.RecordService;
 import com.netease.koala.service.ShopCarService;
 
+/**
+ * @ClassName ShopCarController 
+ * @Description shoppingcar 处理 
+ * @author kg 
+ */
 @Controller
 @RequestMapping("api")
 public class ShopCarController extends BaseController {
