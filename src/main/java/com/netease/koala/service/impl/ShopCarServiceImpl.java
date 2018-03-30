@@ -125,5 +125,4 @@ public class ShopCarServiceImpl implements ShopCarService {
 		}
 		return result;
 	}
-
 }
