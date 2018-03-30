@@ -1,5 +1,7 @@
 package com.netease.koala.controller;
-
+/**
+ * 商品 的增 删 改 查 操作
+ */
 import java.awt.List;
 import java.io.IOException;
 import java.util.Date;
