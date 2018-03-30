@@ -3,6 +3,7 @@ package com.netease.koala.model;
 import java.util.Date;
 
 public class Record {
+	
     private Integer id;
 
     private Integer userid;
