@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.Date;
 
 public class FileUpload {
-
 	// 文件上传
 	public static String uploadFile(MultipartFile file, HttpServletRequest request)
 			throws IOException {
