@@ -12,7 +12,6 @@ import java.util.Map;
 public class ResultDTO<T> extends BaseResultDTO {
 
 	protected T module;
-
 	// 保存详细的校验错误信息
 	protected Map<String, String> checkErrorInfo = new HashMap<String, String>();
 

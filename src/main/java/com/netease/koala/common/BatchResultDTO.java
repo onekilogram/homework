@@ -47,6 +47,7 @@ public class BatchResultDTO<T> extends BaseResultDTO {
 		this.errorDetail = errorMessage;
 		return this;
 	}
+	
 	public BatchResultDTO<T> returnSuccess(List<T> module){
 		this.success = true;
 		this.module = module;

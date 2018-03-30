@@ -50,5 +50,4 @@ public class BaseResultDTO {
 		this.success = true;
 		return this;
 	}
-
 }
