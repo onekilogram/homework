@@ -4,7 +4,6 @@ package com.netease.koala.common;
  * Service层的返回数据封装
  * 
  * 包含成功状态错误码和错误详情
- * 
  */
 public class BaseResultDTO {
 
