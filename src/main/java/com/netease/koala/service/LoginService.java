@@ -12,4 +12,5 @@ import com.netease.koala.model.User;
 public interface LoginService {
 	//根据用户名查询
 	public ResultDTO<User> selectByName(String userName);
+	
 }
