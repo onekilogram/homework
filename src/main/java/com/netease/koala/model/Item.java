@@ -3,7 +3,6 @@ package com.netease.koala.model;
 import java.util.Date;
 
 public class Item {
-	
     private Integer id;
 
     private String itemname;
