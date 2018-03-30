@@ -8,6 +8,7 @@ import com.netease.koala.model.Record;
 import com.netease.koala.model.ShopCarExtend;
 
 public interface RecordDao {
+	
     int deleteByPrimaryKey(Integer id);
 
     int insert(Record record);
