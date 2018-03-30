@@ -101,5 +101,4 @@
 			<!--<ref bean="transactionManagerZabbix" />-->
 		<!--</property>-->
 	<!--</bean>-->
-
 </beans>
