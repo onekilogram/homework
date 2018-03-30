@@ -14,9 +14,10 @@ public class test1 {
 
 		//ggg
 		//hh
+		String fileName = "likeugoLikeg列看过.png";
 		
-		
-		
+		String s = fileName.substring(fileName.lastIndexOf("."),fileName.length());
+		System.out.println(s);
 		
 		
 	}

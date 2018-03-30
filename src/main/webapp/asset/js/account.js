@@ -40,7 +40,7 @@ $(function($) {
 			img.attr("src", item.icon);
 			img.attr("alt", "网络图片");
 		} else {
-			img.attr("src", item.icon);
+			img.attr("src", "/images/"+item.icon);
 			img.attr("alt", "本地图片");
 		}
 		var a2 = tr.find("#a-itemname");

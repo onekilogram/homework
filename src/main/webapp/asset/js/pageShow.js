@@ -74,11 +74,11 @@
 			$(".g-doc #itemId").html(itemId);
 			//游客
 			var showContent=$("#showContent");
-			if(status=1){//来自网络
+			if(status==1){//来自网络
 				showContent.find(".img").find("img").attr("src",icon);
 				showContent.find(".img").find("img").attr("alt","网络图片");
 			}else{
-				showContent.find(".img").find("img").attr("src",icon);
+				showContent.find(".img").find("img").attr("src","/images/"+icon);
 				showContent.find(".img").find("img").attr("alt","本地图片");
 			}
 			showContent.find(".cnt .itemName").html(itemname);
@@ -96,7 +96,7 @@
 					$(".cnt .kg").css("display","block");
 				}
 			}else if(role==2){ //卖家
-				$(".cnt .kg").html("<a href='./edit.html 'class='u-btn u-btn-primary'>编 辑</a>");
+				$(".cnt .kg").html("<a href='./edit.html?itemId="+item.id+" 'class='u-btn u-btn-primary'>编 辑</a>");
 				$(".cnt .kg").css("display","block");
 			}
 		});

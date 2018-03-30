@@ -1,6 +1,9 @@
 package com.netease.koala.dao;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.netease.koala.model.Item;
 
 public interface ItemDao {
@@ -25,5 +28,9 @@ public interface ItemDao {
 
 	// 某用户未购买的商品
 	List<Item> selectNoHaveItemByUserId(Integer userId);
+	
+	// 某用户未购买的商品
+	int updateItemCount(@Param("itemid")Integer itemId,@Param("count") Integer count,@Param("remain") Integer remain);
+	
 	
 }

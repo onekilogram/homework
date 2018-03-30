@@ -24,4 +24,12 @@ public interface ItemService {
 	// 查询某一个商品
 	ResultDTO<Item> selectOneItem(Integer itemId);
 
+	// 修改售出数量和剩余数量
+	ResultDTO<Integer> updateItem(Integer itemId, Integer count, Integer remain);
+
+	ResultDTO<Integer> insertItem(Item record);
+
+	// 修改售出数量和剩余数量
+	ResultDTO<Integer> updateItem(Item item);
+
 }

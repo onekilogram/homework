@@ -37,11 +37,11 @@ $(function($) {
 		var r = new FileReader();
 		f = document.getElementById('fileUp').files[0];
 		if (checkPhoto(f.name)) {// 不是图片就提示
-			 r.readAsDataURL(f);
-			 r.onload = function(e) {
-			 document.getElementById('imgpre').src = this.result;
-			 };
-			 return;
+			r.readAsDataURL(f);
+			r.onload = function(e) {
+				document.getElementById('imgpre').src = this.result;
+			};
+			return;
 		}
 		var _html = "<input class='kg-input' name='file' type='file' id='fileUp'>";
 		var _div = $("#fileUpload");
@@ -70,7 +70,7 @@ $(function($) {
 			// form.submit();
 			// alert(result);
 			// onsubmit="return false;"
-			$("#form").attr('action', homeworkWebBaseURL + "api/addItem"); // 通过jquery为action属性赋值
+			$("#form").attr('action', homeworkWebBaseURL + "api/updateItem"); // 通过jquery为action属性赋值
 			$("#form").attr("onsubmit", "return true;");
 			$("#form").submit(); // 提交ID为myform的表单
 		}
@@ -84,27 +84,16 @@ $(function($) {
 		var list = [];
 		list.push($("input[name='title']"));
 		list.push($("input[name='summary']"));
-		var type=$("input[name='picType']").val();
-		if (type=="url") {
+		var type = $("input[name='picType']").val();
+		if (type == "url") {
 			list.push($("input[name='image']"));
-		}else{
+		} else {
 			f = document.getElementById('fileUp').files[0];
 			if (typeof (f) == "undefined") {
 				alert("请选择图片！");
 				return false;
-				}
+			}
 		}
-//		if ($("#radio2").attr("checked")) {
-//			// list.push($('input[type="file"]'));
-//			//var r = new FileReader();
-//			f = document.getElementById('fileUp').files[0];
-//			if (typeof (f) == "undefined") {
-//				alert("请选择图片！");
-//				return false;
-//				}
-//		}
-		// list.push($("input[name='image']"));
-		// list.push($("input[name='file']"));
 		list.push($("textarea[name='detail']"));
 		list.push($("input[name='price']"));
 
@@ -113,9 +102,12 @@ $(function($) {
 		var detail = $("textarea[name='detail']").val();
 		var price = $("input[name='price']");
 		var result = true;
-		$.each(list, function(i, item) {
+		//alert(list[0].val());
+		$.each(list,function(i, item) {
 			var value = item.val();
+			
 			if (value == null || value == "") {
+				//alert(value);
 				item.addClass('z-err');
 				result = false;
 			}
@@ -125,20 +117,6 @@ $(function($) {
 			result = false;
 		}
 		return result;
-		// alert(title);
-		// 验证信息
-		/*
-		 * var result = true; [ [title,function(value){return value.length<2 ||
-		 * value.length>80}], [summary,function(value){return value.length<2 ||
-		 * value.length>140}], [image,function(value){return value == '' ||
-		 * !(/^(http|https):\/\//.test(value) &&
-		 * /\.(jpg|gif|png)$/.test(value))}], [detail,function(value){return
-		 * value.length<2 || value.length>1000}], [price,function(value){return
-		 * value == '' || !Number(value)}] ].forEach(function(item){ var value =
-		 * item[0].value.trim(); if(item[1](value)){
-		 * item[0].classList.add('z-err'); result = false; } item[0].value =
-		 * value; }); return result;
-		 */
 	}
 	$("input").click(function() {
 		$(this).removeClass("z-err");
@@ -158,5 +136,66 @@ $(function($) {
 			return false;
 		}
 		return true;
+	}
+	
+	//初始化所有信息
+	
+	var Request = new Object();
+	Request = GetRequest();
+	var itemId = Request['itemId'];
+	$.getJSON(homeworkWebBaseURL + 'api/selectOneItem',{itemId:itemId}, function(data) {
+		// oData = {"username":"nimojs","userid":1}
+		//$('#info').html('用户名：' + oData.username + '<br>用户ID：' + oData.userid);
+		if (!data.success) {
+			alert("selectOneItem 数据查询有误");
+			window.location.href=homeworkWebBaseURL; 
+			return;
+		}
+		var item = data.dataObject.item;
+		var count = item.count;//销量
+		var datatime = item.datatime;//时间
+		var icon = item.icon;//图片
+		var itemname = item.itemname;//商品名
+		var pirce = item.pirce;//价格
+		var remain = item.remain;//剩余量
+		var status = item.status;//图片的来源
+		var title = item.title;//摘要
+		var decp=item.description;//描述
+		var itemId=item.id;
+		
+		var role=data.dataObject.role;
+		var overPrice=data.dataObject.overPrice;//以前的价格
+		
+		
+		//初始化
+		$("input[name='itemId']").val(item.id)
+		$("input[name='title']").val(itemname);
+		$("input[name='summary']").val(title);
+		$("textarea[name='detail']").val(decp);
+		$("input[name='price']").val(pirce);
+		if(status==1){
+			$(".imgpre img").attr({
+				src : icon,
+				alt : "网络图片"
+			});
+		}else{
+			$(".imgpre img").attr({
+				src : "/images/" + icon,
+				alt : "本地图片"
+			});
+		}
+	});
+	
+	function GetRequest() {
+		var url = location.search; // 获取url中"?"符后的字串
+		var theRequest = new Object();
+		if (url.indexOf("?") != -1) {
+			var str = url.substr(1);
+			strs = str.split("&");
+			for (var i = 0; i < strs.length; i++) {
+				theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+			}
+		}
+		return theRequest;
 	}
 });

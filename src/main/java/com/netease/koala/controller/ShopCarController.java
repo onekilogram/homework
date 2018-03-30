@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.netease.koala.bo.IntegerList;
 import com.netease.koala.common.BatchResultDTO;
 import com.netease.koala.common.ResultDTO;
+import com.netease.koala.model.Item;
 import com.netease.koala.model.Record;
 import com.netease.koala.model.ShopCar;
 import com.netease.koala.model.ShopCarExtend;
@@ -118,7 +119,8 @@ public class ShopCarController extends BaseController {
 
 	@ResponseBody
 	@RequestMapping("pay")
-	public String pay( @RequestParam("shopCarIdlist[]") List<Integer> shopCarIdlist, HttpServletRequest request) {
+	public String pay(@RequestParam("shopCarIdlist[]") List<Integer> shopCarIdlist,
+			HttpServletRequest request) {
 
 		try {
 			User user = getLoginUser(request);
@@ -139,9 +141,16 @@ public class ShopCarController extends BaseController {
 				record.setUserid(user.getId());
 				ResultDTO<Integer> insetResult = recordService.insertRecord(record);
 
+				// 商品已售数量+N
+				ResultDTO<Item> itemTemp = itemService.selectOneItem(shopCar.getItemid());
+
+				itemService.updateItem(shopCar.getItemid(),
+						itemTemp.getModule().getCount() + shopCar.getCount(),
+						itemTemp.getModule().getRemain() - shopCar.getCount());
+
 				ResultDTO<Integer> result = shopCarService.deleteShopCarByShopCarId(shopCarId);
 				if (insetResult.isSuccess() && result.isSuccess()) {
-					return responseControllerResultSuccess("OK");
+					
 				} else {
 					log.error("selectShopCarById or insertRecord or deleteShopCarById 数据异常！");
 					return responseControllerResultError(

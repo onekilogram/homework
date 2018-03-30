@@ -80,11 +80,12 @@ public class UserMapperTest {
 //
 //		ShopCar shopCar =  shopCarDao.selectByUseridAndItemid(1, 7);
 		
-		List<ShopCarExtend> list = recordDao.selectRecordEx(1);
-		for(ShopCarExtend shopCarExtend : list){
-			System.out.println(shopCarExtend.getIcon());
-		}
+//		List<ShopCarExtend> list = recordDao.selectRecordEx(1);
+//		for(ShopCarExtend shopCarExtend : list){
+//			System.out.println(shopCarExtend.getIcon());
+//		}
 		
+		itemDao.updateItemCount(1, 5,3);
 	}
 
 	@Test

@@ -97,4 +97,49 @@ public class ItemServiceImpl implements ItemService {
 		}
 		return result;
 	}
+
+	@Override
+	public ResultDTO<Integer> updateItem(Integer itemId, Integer count, Integer remain) {
+		ResultDTO<Integer> result = new ResultDTO<Integer>();
+		try {
+			Integer rs = itemDao.updateItemCount(itemId, count, remain);
+			result.setSuccess(true);
+			result.setModule(rs);
+		} catch (Exception e) {
+			result.setSuccess(false);
+			result.setErrorDetail("updateItem 失败！");
+			log.error("updateItem 失败！");
+		}
+		return result;
+	}
+
+	@Override
+	public ResultDTO<Integer> insertItem(Item record) {
+		ResultDTO<Integer> result = new ResultDTO<Integer>();
+		try {
+			Integer rs = itemDao.insertSelective(record);
+			result.setSuccess(true);
+			result.setModule(rs);
+		} catch (Exception e) {
+			result.setSuccess(false);
+			result.setErrorDetail("insertItem 失败！");
+			log.error("insertItem 失败！");
+		}
+		return result;
+	}
+
+	@Override
+	public ResultDTO<Integer> updateItem(Item item) {
+		ResultDTO<Integer> result = new ResultDTO<Integer>();
+		try {
+			Integer rs = itemDao.updateByPrimaryKeySelective(item);
+			result.setSuccess(true);
+			result.setModule(rs);
+		} catch (Exception e) {
+			result.setSuccess(false);
+			result.setErrorDetail("updateItem 失败！");
+			log.error("updateItem 失败！");
+		}
+		return result;
+	}
 }

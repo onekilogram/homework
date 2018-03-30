@@ -70,6 +70,7 @@
 	<!-- 静态文件无需经过Spring -->
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
-		<url-pattern>/asset/*</url-pattern>
+		<url-pattern>/asset/*</url-pattern> 
+		<url-pattern>/images/*</url-pattern> 
 	</servlet-mapping>
 </web-app>

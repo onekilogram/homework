@@ -111,7 +111,7 @@ $(function($) {
 			});
 		} else {
 			model.find(".img .classimg").attr({
-				src : "picture" + icon,
+				src : "/images/" + icon,
 				alt : "本地图片"
 			});
 		}
@@ -138,7 +138,7 @@ $(function($) {
 			});
 		} else {
 			model.find(".img .classimg").attr({
-				src : "picture" + icon,
+				src : "/images/" + icon,
 				alt : "本地图片"
 			});
 		}
@@ -164,7 +164,7 @@ $(function($) {
 			});
 		} else {
 			model.find(".img .classimg").attr({
-				src : "picture" + icon,
+				src : "/images/" + icon,
 				alt : "本地图片"
 			});
 		}
@@ -192,7 +192,7 @@ $(function($) {
 			});
 		} else {
 			model.find(".img .classimg").attr({
-				src : "picture" + icon,
+				src : "/images/" + icon,
 				alt : "本地图片"
 			});
 		}
