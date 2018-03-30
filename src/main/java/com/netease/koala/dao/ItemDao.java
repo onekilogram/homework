@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import com.netease.koala.model.Item;
 
 public interface ItemDao {
+	
 	int deleteByPrimaryKey(Integer id);
 
 	int insert(Item record);
